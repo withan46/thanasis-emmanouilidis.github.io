@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thanasis Emmanouilidis - ML / AI Engineer</title>
+<meta name="description" content="Thanasis Emmanouilidis - ML / AI Engineer specializing in LLM systems, multi-agent orchestration, and applied deep learning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --bg-panel: #ffffff;
+    --grid-line: rgba(23, 117, 106, 0.09);
+    --ink: #12181c;
+    --ink-soft: #46525a;
+    --ink-faint: #77848c;
+    --accent: #17756a;
+    --accent-strong: #0f5a52;
+    --accent-wash: rgba(23, 117, 106, 0.08);
+    --line: #e4e7ea;
+    --line-strong: #d3d8dc;
+    --shadow: 0 1px 2px rgba(18, 24, 28, 0.04), 0 8px 24px rgba(18, 24, 28, 0.05);
+    --radius: 14px;
+  }
+  html[data-theme="dark"] {
+    --bg: #0c1013;
+    --bg-panel: #131a1f;
+    --grid-line: rgba(66, 196, 179, 0.08);
+    --ink: #eef2f3;
+    --ink-soft: #aeb9bf;
+    --ink-faint: #75838a;
+    --accent: #3fc2b1;
+    --accent-strong: #62d4c4;
+    --accent-wash: rgba(63, 194, 177, 0.10);
+    --line: #222c33;
+    --line-strong: #2c3840;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 30px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.35s ease, color 0.35s ease;
+  }
+
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-strong); }
+
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-name { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 0.98rem; letter-spacing: -0.01em; }
+  .nav-name span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    color: var(--ink-soft); font-size: 0.86rem; font-weight: 500;
+    position: relative; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 720px) { .nav-links a:not(.theme-toggle) { display: none; } }
+
+  .theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 9px;
+    border: 1px solid var(--line-strong); background: var(--bg-panel);
+    cursor: pointer; color: var(--ink-soft); padding: 0;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle svg { width: 16px; height: 16px; }
+  html[data-theme="dark"] .icon-moon { display: none; }
+  html:not([data-theme="dark"]) .icon-sun { display: none; }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  header.hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at 72% 18%, #000 0%, transparent 78%);
+    mask-image: radial-gradient(ellipse 80% 75% at 72% 18%, #000 0%, transparent 78%);
+    pointer-events: none;
+  }
+  /* highlighted "parcel" */
+  header.hero::after {
+    content: ""; position: absolute;
+    top: 40px; right: 8%; width: 92px; height: 92px;
+    border: 1.5px solid var(--accent);
+    background: var(--accent-wash);
+    opacity: 0.5;
+    transform: rotate(0deg);
+    pointer-events: none;
+    display: none;
+  }
+  @media (min-width: 720px) { header.hero::after { display: none; } }
+
+  .hero-inner { position: relative; padding: 74px 0 62px; display: flex; gap: 44px; align-items: flex-start; justify-content: space-between; }
+  .hero-main { flex: 1; min-width: 0; }
+  .avatar {
+    flex: none; position: relative; width: 132px; height: 132px;
+    border-radius: 50%; overflow: hidden; margin-top: 4px;
+    border: 2px solid var(--line-strong); box-shadow: var(--shadow);
+    background: var(--accent-wash);
+  }
+  .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .avatar-fallback {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 2.6rem;
+    color: var(--accent); letter-spacing: 0.03em;
+  }
+  @media (max-width: 640px) {
+    .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 26px; }
+    .avatar { width: 104px; height: 104px; }
+    .avatar-fallback { font-size: 2rem; }
+  }
+  .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .hero-eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-wash); }
+  h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.3rem, 6vw, 3.6rem);
+    line-height: 1.02; letter-spacing: -0.02em; font-weight: 700;
+    margin: 0 0 18px;
+  }
+  h1 .role { display: block; color: var(--accent); }
+  .lede {
+    font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+    color: var(--ink-soft); max-width: 620px; margin: 0 0 30px;
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  .contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--line-strong); background: var(--bg-panel);
+    font-size: 0.85rem; color: var(--ink-soft); font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .chip:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+  .chip svg { width: 15px; height: 15px; flex: none; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 62px 0; border-bottom: 1px solid var(--line); }
+  .sec-head { margin-bottom: 34px; }
+  .sec-head h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.4rem, 3vw, 1.75rem);
+    letter-spacing: -0.01em; font-weight: 600; margin: 8px 0 0;
+  }
+
+  /* ---------- Experience ---------- */
+  .exp { display: grid; grid-template-columns: 190px 1fr; gap: 28px; }
+  @media (max-width: 720px) { .exp { grid-template-columns: 1fr; gap: 14px; } }
+  .exp-meta .role-title { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.06rem; }
+  .exp-meta .company { color: var(--accent); font-weight: 600; margin-top: 2px; }
+  .exp-meta .period { color: var(--ink-faint); font-size: 0.85rem; margin-top: 6px; font-family: "IBM Plex Mono", monospace; }
+
+  .flagship {
+    background: var(--bg-panel); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius); padding: 24px 26px; box-shadow: var(--shadow);
+  }
+  .flagship .fp-label { margin-bottom: 6px; }
+  .flagship h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.14rem; font-weight: 600; margin: 0 0 10px; }
+  .flagship p.summary { color: var(--ink-soft); margin: 0 0 16px; }
+  ul.clean { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+  ul.clean li { position: relative; padding-left: 22px; color: var(--ink-soft); font-size: 0.95rem; }
+  ul.clean li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 8px; height: 8px; border: 1.5px solid var(--accent);
+    background: var(--accent-wash);
+  }
+  ul.clean li strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Projects ---------- */
+  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 720px) { .proj-grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--bg-panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px 22px 20px;
+    display: flex; flex-direction: column; box-shadow: var(--shadow);
+    transition: transform 0.22s ease, border-color 0.22s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.05rem; font-weight: 600; margin: 10px 0 8px; line-height: 1.25; }
+  .card p { color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 16px; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.7rem;
+    padding: 4px 9px; border-radius: 6px;
+    background: var(--accent-wash); color: var(--accent-strong);
+    border: 1px solid transparent;
+  }
+  html[data-theme="dark"] .tag { color: var(--accent); }
+
+  /* ---------- Skills ---------- */
+  .skill-group { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .skill-group:first-child { border-top: none; padding-top: 0; }
+  @media (max-width: 620px) { .skill-group { grid-template-columns: 1fr; gap: 10px; } }
+  .skill-group .g-name { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 0.98rem; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill {
+    font-size: 0.85rem; padding: 5px 12px; border-radius: 8px;
+    border: 1px solid var(--line-strong); color: var(--ink-soft);
+    background: var(--bg-panel); font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- Foundational (compact) ---------- */
+  .mini-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 620px) { .mini-grid { grid-template-columns: 1fr; } }
+  .mini {
+    padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--bg-panel);
+  }
+  .mini h4 { font-family: "Space Grotesk", sans-serif; font-size: 0.96rem; font-weight: 600; margin: 0 0 5px; }
+  .mini p { color: var(--ink-soft); font-size: 0.86rem; margin: 0; }
+
+  /* ---------- Two-col bottom ---------- */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+  @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+  .stack-item { margin-bottom: 20px; }
+  .stack-item:last-child { margin-bottom: 0; }
+  .stack-item .t { font-weight: 600; color: var(--ink); }
+  .stack-item .s { color: var(--ink-soft); font-size: 0.9rem; }
+  .stack-item .d { color: var(--ink-faint); font-size: 0.82rem; font-family: "IBM Plex Mono", monospace; margin-top: 2px; }
+
+  .lang-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); }
+  .lang-bar:first-child { border-top: none; }
+  .lang-bar .lv { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--accent); }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 48px 0 60px; text-align: center; }
+  footer .foot-name { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 6px; }
+  footer p { color: var(--ink-faint); font-size: 0.85rem; margin: 0 0 20px; }
+  footer .contact-row { justify-content: center; }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="nav-name">Thanasis<span>.</span>E</div>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-main">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      <span class="mono">ML / AI Engineer - Thessaloniki, Greece</span>
+    </div>
+    <h1>Thanasis Emmanouilidis<span class="role">building LLM systems for real-world decisions</span></h1>
+    <p class="lede">I take models from training to self-hosted production - most recently a <strong>7-month cadastral-data pipeline</strong> built on a fine-tuned Greek LLM. My work runs from deep-learning and LLM fine-tuning through agentic pipelines, custom MCP tooling, and the Docker-based infrastructure that serves it all.</p>
+    <div class="contact-row">
+      <a class="chip" href="mailto:thanasisemmanouilidis46@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+        Email
+      </a>
+      <a class="chip" href="https://www.linkedin.com/in/thanasis-emmanouilidis-7b6139223/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.35V21h-4v-5.9c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg>
+        LinkedIn
+      </a>
+      <a class="chip" href="https://github.com/withan46" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a class="chip" href="tel:+306995415055">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+        Call
+      </a>
+    </div>
+    </div>
+
+    <div class="avatar">
+      <span class="avatar-fallback">TE</span>
+      <!-- Upload your photo to the repo as "profile.jpg" (same folder as index.html) -->
+      <img src="profile.jpg" alt="Thanasis Emmanouilidis" onerror="this.style.display='none'">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head reveal">
+      <span class="mono">01 - Experience</span>
+      <h2>Where I work now</h2>
+    </div>
+    <div class="exp reveal">
+      <div class="exp-meta">
+        <div class="role-title">Data Scientist</div>
+        <div class="company">Geoanalysis S.A.</div>
+        <div class="period">Feb 2025 - Present</div>
+      </div>
+      <div class="flagship">
+        <div class="fp-label mono">Flagship project - ~7 months</div>
+        <h3>Cadastral-Data Decision & Response Pipeline</h3>
+        <p class="summary">An end-to-end system that ingests cadastral (land-registry) records, decides the correct outcome for each case, and writes a complete, company-formatted response ready to send - cutting manual handling on a high-volume, Greek-language workflow.</p>
+        <ul class="clean">
+          <li>Trained a <strong>multi-label classification model</strong> to categorize incoming cadastral records and route each case toward the correct decision path.</li>
+          <li>Fine-tuned <strong>Krikri (Greek LLM), served via Ollama</strong>, to generate the final answers in the exact format the business requires.</li>
+          <li>Combined the classifier's structured decision with the fine-tuned model's generation, so the pipeline both <strong>chooses the right decision and writes the full response</strong>.</li>
+          <li>Deployed and ran the system in-house with <strong>vector databases, Docker, and MCP tooling</strong> for retrieval, packaging, and orchestration.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:40px;">
+      <span class="mono">Additional systems built at Geoanalysis</span>
+      <div class="proj-grid" style="margin-top:18px;">
+        <article class="card">
+          <span class="mono">Multi-Agent - RAG</span>
+          <h3>Multi-Agent Information Search & Synthesis</h3>
+          <p>A LangGraph pipeline running parallel web-search and RAG agents into a synthesis workflow, with a voting sub-graph of strict / lenient / devil's-advocate reviewers to resolve disagreement, plus a synthesizer and fact-checker behind a Streamlit UI.</p>
+          <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Qdrant</span><span class="tag">sentence-transformers</span><span class="tag">Streamlit</span></div>
+        </article>
+
+        <article class="card">
+          <span class="mono">Agentic - Automation</span>
+          <h3>Email Monitoring & Summarization Agent</h3>
+          <p>A read-only Gmail agent using the Gmail API and Google Cloud Pub/Sub for event-triggered processing, feeding a LangGraph pipeline with vector-DB storage and Telegram delivery.</p>
+          <div class="tags"><span class="tag">Gmail API</span><span class="tag">Pub/Sub</span><span class="tag">LangGraph</span><span class="tag">Telegram</span></div>
+        </article>
+
+        <article class="card">
+          <span class="mono">Retrieval - Self-Hosted</span>
+          <h3>Self-Hosted RAG Chat Applications</h3>
+          <p>Streamlit retrieval-and-chat apps backed by Qdrant, Ollama embeddings, and vLLM-served LLMs (Qwen family), with live streaming of the model's reasoning as it responds.</p>
+          <div class="tags"><span class="tag">vLLM</span><span class="tag">Ollama</span><span class="tag">Qdrant</span><span class="tag">Streamlit</span></div>
+        </article>
+
+        <article class="card reveal">
+        <span class="mono">LLM - Domain Adaptation</span>
+        <h3>Domain-Specific Greek Legal LLM</h3>
+        <p>Adapted Llama-Krikri-8B to a specialized legal domain from a corpus of law books - comparing continued pretraining vs. LoRA/QLoRA vs. RAG, generating synthetic SFT data, and targeting single-node training on NVIDIA DGX Spark.</p>
+        <div class="tags"><span class="tag">LoRA / QLoRA</span><span class="tag">RAG</span><span class="tag">Synthetic Data</span><span class="tag">DGX Spark</span></div>
+      </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head reveal">
+      <span class="mono">02 - Personal &amp; Academic Projects</span>
+      <h2>Depth beyond the job</h2>
+    </div>
+    <div class="proj-grid">
+      <article class="card reveal">
+        <span class="mono">Generative - Deep RL</span>
+        <h3>Transformer GAN + CLIP-Guided RL Fine-Tuning</h3>
+        <p>A conditional GAN with a transformer text encoder for caption-to-image generation on Oxford Flowers, then extended with policy-gradient RL fine-tuning using CLIP as the reward signal - significantly improving text–image alignment, with analysis of the alignment–diversity tradeoff (an RLHF parallel).</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">GAN</span><span class="tag">CLIP</span><span class="tag">RL</span></div>
+      </article>
+
+      <article class="card reveal">
+        <span class="mono">Sequence Models - Audio</span>
+        <h3>Automatic Piano Transcription</h3>
+        <p>A comparative study transcribing piano audio to MIDI on the MAESTRO dataset - benchmarking LSTM+CNN vs. vanilla Transformer vs. efficient sparse-attention Transformer across accuracy, speed, and memory, including work on MIDI tokenization schemes.</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">Sparse Attention</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head reveal">
+      <span class="mono">03 - Skills</span>
+      <h2>Tools &amp; stack</h2>
+    </div>
+    <div class="reveal">
+      <div class="skill-group">
+        <div class="g-name">Languages</div>
+        <div class="skill-list">
+          <span class="skill">Python</span><span class="skill">SQL</span><span class="skill">Java</span><span class="skill">R</span><span class="skill">C</span><span class="skill">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-name">ML / Deep Learning</div>
+        <div class="skill-list">
+          <span class="skill">PyTorch</span><span class="skill">TensorFlow</span><span class="skill">Keras</span><span class="skill">scikit-learn</span><span class="skill">Transformers</span><span class="skill">GANs</span><span class="skill">Reinforcement Learning</span><span class="skill">CLIP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-name">LLM Engineering</div>
+        <div class="skill-list">
+          <span class="skill">RAG</span><span class="skill">Fine-tuning (LoRA/QLoRA)</span><span class="skill">Continued Pretraining</span><span class="skill">Domain Adaptation</span><span class="skill">Synthetic Data</span><span class="skill">Multi-Agent Systems</span><span class="skill">Agent-based Modeling</span><span class="skill">MCP (Model Context Protocol)</span><span class="skill">Custom MCP Tools</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-name">Frameworks</div>
+        <div class="skill-list">
+          <span class="skill">LangGraph</span><span class="skill">LangChain</span><span class="skill">LlamaIndex</span><span class="skill">sentence-transformers</span><span class="skill">Unsloth</span><span class="skill">LLaMA-Factory</span><span class="skill">NeMo</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-name">Infrastructure &amp; Serving</div>
+        <div class="skill-list">
+          <span class="skill">Docker</span><span class="skill">Docker MCP Toolkit</span><span class="skill">vLLM</span><span class="skill">SGLang</span><span class="skill">Ollama</span><span class="skill">Qdrant (Vector DB)</span><span class="skill">Neo4j (Graph DB)</span><span class="skill">PostgreSQL</span><span class="skill">Google Cloud</span><span class="skill">NVIDIA DGX Spark</span><span class="skill">Streamlit</span><span class="skill">Open WebUI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDATIONS -->
+  <section id="foundations">
+    <div class="sec-head reveal">
+      <span class="mono">04 - Foundations</span>
+      <h2>Earlier project work</h2>
+    </div>
+    <div class="mini-grid reveal">
+      <div class="mini">
+        <h4>CT-Scan Segmentation</h4>
+        <p>Deep neural networks for medical image segmentation on CT scans (TensorFlow, Keras, skimage).</p>
+      </div>
+      <div class="mini">
+        <h4>Autonomous Car RL Simulation</h4>
+        <p>A reinforcement-learning agent that learns collision-free navigation through trial and error.</p>
+      </div>
+      <div class="mini">
+        <h4>Stroke Prediction</h4>
+        <p>ML classifiers with imbalanced-data handling (SMOTE, scikit-learn) to predict stroke risk.</p>
+      </div>
+      <div class="mini">
+        <h4>Hurricane Data Extraction</h4>
+        <p>NLP/AI parsing of unstructured historical hurricane records (BeautifulSoup, generative AI).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + CERTS + LANGUAGES -->
+  <section id="education">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:24px;">
+          <span class="mono">05 - Education</span>
+          <h2>Background</h2>
+        </div>
+        <div class="stack-item">
+          <div class="t">MSc, Artificial Intelligence</div>
+          <div class="s">Aristotle University of Thessaloniki (AUTH)</div>
+          <div class="d">2025 - Present - In progress</div>
+        </div>
+        <div class="stack-item">
+          <div class="t">BSc, Applied Informatics</div>
+          <div class="s">University of Macedonia</div>
+          <div class="d">2020 - 2024 - ML - Neural Networks - Data Science</div>
+        </div>
+
+        <div class="sec-head" style="margin:34px 0 20px;">
+          <span class="mono">Certifications &amp; Awards</span>
+        </div>
+        <div class="stack-item"><div class="t">LangChain - LangGraph - LangChain (Python) - LangSmith Agent Builder</div><div class="s">LangChain - 2025–2026</div></div>
+        <div class="stack-item"><div class="t">Neo4j Certified Professional</div><div class="s">Neo4j - 2025 - graph databases + LLM fundamentals</div></div>
+        <div class="stack-item"><div class="t">Deep Learning Specialization</div><div class="s">DeepLearning.AI - 2024–2025</div></div>
+        <div class="stack-item"><div class="t">Data Science Professional Certificate</div><div class="s">IBM - 2024</div></div>
+        <div class="stack-item"><div class="t">Best Work in Software Technology</div><div class="s">University award for outstanding project performance</div></div>
+      </div>
+
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:24px;">
+          <span class="mono">06 - Languages</span>
+          <h2>Languages</h2>
+        </div>
+        <div class="lang-bar"><span>Greek</span><span class="lv">Native</span></div>
+        <div class="lang-bar"><span>English</span><span class="lv">C2 - Professional</span></div>
+
+        <div class="sec-head" style="margin:34px 0 16px;">
+          <span class="mono">Focus Areas</span>
+        </div>
+        <div class="skill-list">
+          <span class="skill">LLM Systems</span><span class="skill">Agentic AI</span><span class="skill">MCP &amp; Tooling</span><span class="skill">Generative Models</span><span class="skill">Retrieval &amp; Graph</span><span class="skill">Greek NLP</span><span class="skill">MLOps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Thanasis Emmanouilidis</div>
+    <p class="mono" style="color:var(--ink-faint);">Open to ML / AI engineer roles</p>
+    <div class="contact-row">
+      <a class="chip" href="mailto:thanasisemmanouilidis46@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+        thanasisemmanouilidis46@gmail.com
+      </a>
+      <a class="chip" href="https://www.linkedin.com/in/thanasis-emmanouilidis-7b6139223/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 22 10.9 22 14.35V21h-4v-5.9c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg>
+        LinkedIn
+      </a>
+      <a class="chip" href="https://github.com/withan46" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle (in-memory; defaults to system preference)
+  (function () {
+    var root = document.documentElement;
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", prefersDark ? "dark" : "light");
+    var btn = document.getElementById("themeToggle");
+    btn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+    });
+  })();
+
+  // Scroll reveal
+  (function () {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (e) { e.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>
