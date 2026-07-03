@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Thanasis Emmanouilidis — ML / AI Engineer</title>
-<meta name="description" content="Thanasis Emmanouilidis — ML / AI Engineer specializing in LLM systems, multi-agent orchestration, and applied deep learning." />
+<title>Thanasis Emmanouilidis - ML / AI Engineer</title>
+<meta name="description" content="Thanasis Emmanouilidis - ML / AI Engineer specializing in LLM systems, multi-agent orchestration, and applied deep learning." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -300,10 +300,10 @@
     <div class="hero-main">
     <div class="hero-eyebrow">
       <span class="dot"></span>
-      <span class="mono">ML / AI Engineer · Thessaloniki, Greece</span>
+      <span class="mono">ML / AI Engineer - Thessaloniki, Greece</span>
     </div>
     <h1>Thanasis Emmanouilidis<span class="role">building LLM systems for real-world decisions</span></h1>
-    <p class="lede">I take models from training to self-hosted production — most recently a <strong>7-month cadastral-data pipeline</strong> built on a fine-tuned Greek LLM. My work runs from deep-learning and LLM fine-tuning through agentic pipelines, custom MCP tooling, and the Docker-based infrastructure that serves it all.</p>
+    <p class="lede">I take models from training to self-hosted production - most recently a <strong>7-month cadastral-data pipeline</strong> built on a fine-tuned Greek LLM. My work runs from deep-learning and LLM fine-tuning through agentic pipelines, custom MCP tooling, and the Docker-based infrastructure that serves it all.</p>
     <div class="contact-row">
       <a class="chip" href="mailto:thanasisemmanouilidis46@gmail.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
@@ -341,19 +341,19 @@
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="sec-head reveal">
-      <span class="mono">01 — Experience</span>
+      <span class="mono">01 - Experience</span>
       <h2>Where I work now</h2>
     </div>
     <div class="exp reveal">
       <div class="exp-meta">
         <div class="role-title">Data Scientist</div>
         <div class="company">Geoanalysis S.A.</div>
-        <div class="period">Feb 2025 — Present</div>
+        <div class="period">Feb 2025 - Present</div>
       </div>
       <div class="flagship">
-        <div class="fp-label mono">Flagship project · ~7 months</div>
+        <div class="fp-label mono">Flagship project - ~7 months</div>
         <h3>Cadastral-Data Decision & Response Pipeline</h3>
-        <p class="summary">An end-to-end system that ingests cadastral (land-registry) records, decides the correct outcome for each case, and writes a complete, company-formatted response ready to send — cutting manual handling on a high-volume, Greek-language workflow.</p>
+        <p class="summary">An end-to-end system that ingests cadastral (land-registry) records, decides the correct outcome for each case, and writes a complete, company-formatted response ready to send - cutting manual handling on a high-volume, Greek-language workflow.</p>
         <ul class="clean">
           <li>Trained a <strong>multi-label classification model</strong> to categorize incoming cadastral records and route each case toward the correct decision path.</li>
           <li>Fine-tuned <strong>Krikri (Greek LLM), served via Ollama</strong>, to generate the final answers in the exact format the business requires.</li>
@@ -367,25 +367,33 @@
       <span class="mono">Additional systems built at Geoanalysis</span>
       <div class="proj-grid" style="margin-top:18px;">
         <article class="card">
-          <span class="mono">Multi-Agent · RAG</span>
+          <span class="mono">Multi-Agent - RAG</span>
           <h3>Multi-Agent Information Search & Synthesis</h3>
           <p>A LangGraph pipeline running parallel web-search and RAG agents into a synthesis workflow, with a voting sub-graph of strict / lenient / devil's-advocate reviewers to resolve disagreement, plus a synthesizer and fact-checker behind a Streamlit UI.</p>
           <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Qdrant</span><span class="tag">sentence-transformers</span><span class="tag">Streamlit</span></div>
         </article>
 
         <article class="card">
-          <span class="mono">Agentic · Automation</span>
+          <span class="mono">Agentic - Automation</span>
           <h3>Email Monitoring & Summarization Agent</h3>
           <p>A read-only Gmail agent using the Gmail API and Google Cloud Pub/Sub for event-triggered processing, feeding a LangGraph pipeline with vector-DB storage and Telegram delivery.</p>
           <div class="tags"><span class="tag">Gmail API</span><span class="tag">Pub/Sub</span><span class="tag">LangGraph</span><span class="tag">Telegram</span></div>
         </article>
 
         <article class="card">
-          <span class="mono">Retrieval · Self-Hosted</span>
+          <span class="mono">Retrieval - Self-Hosted</span>
           <h3>Self-Hosted RAG Chat Applications</h3>
           <p>Streamlit retrieval-and-chat apps backed by Qdrant, Ollama embeddings, and vLLM-served LLMs (Qwen family), with live streaming of the model's reasoning as it responds.</p>
           <div class="tags"><span class="tag">vLLM</span><span class="tag">Ollama</span><span class="tag">Qdrant</span><span class="tag">Streamlit</span></div>
         </article>
+
+        <article class="card reveal">
+        <span class="mono">LLM - Domain Adaptation</span>
+        <h3>Domain-Specific Greek Legal LLM</h3>
+        <p>Adapted Llama-Krikri-8B to a specialized legal domain from a corpus of law books - comparing continued pretraining vs. LoRA/QLoRA vs. RAG, generating synthetic SFT data, and targeting single-node training on NVIDIA DGX Spark.</p>
+        <div class="tags"><span class="tag">LoRA / QLoRA</span><span class="tag">RAG</span><span class="tag">Synthetic Data</span><span class="tag">DGX Spark</span></div>
+      </article>
+        
       </div>
     </div>
   </section>
@@ -393,28 +401,21 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="sec-head reveal">
-      <span class="mono">02 — Personal &amp; Academic Projects</span>
+      <span class="mono">02 - Personal &amp; Academic Projects</span>
       <h2>Depth beyond the job</h2>
     </div>
     <div class="proj-grid">
       <article class="card reveal">
-        <span class="mono">Generative · Deep RL</span>
+        <span class="mono">Generative - Deep RL</span>
         <h3>Transformer GAN + CLIP-Guided RL Fine-Tuning</h3>
-        <p>A conditional GAN with a transformer text encoder for caption-to-image generation on Oxford Flowers, then extended with policy-gradient RL fine-tuning using CLIP as the reward signal — significantly improving text–image alignment, with analysis of the alignment–diversity tradeoff (an RLHF parallel).</p>
+        <p>A conditional GAN with a transformer text encoder for caption-to-image generation on Oxford Flowers, then extended with policy-gradient RL fine-tuning using CLIP as the reward signal - significantly improving text–image alignment, with analysis of the alignment–diversity tradeoff (an RLHF parallel).</p>
         <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">GAN</span><span class="tag">CLIP</span><span class="tag">RL</span></div>
       </article>
-
+      
       <article class="card reveal">
-        <span class="mono">LLM · Domain Adaptation</span>
-        <h3>Domain-Specific Greek Legal LLM</h3>
-        <p>Adapted Llama-Krikri-8B to a specialized legal domain from a corpus of law books — comparing continued pretraining vs. LoRA/QLoRA vs. RAG, generating synthetic SFT data, and targeting single-node training on NVIDIA DGX Spark.</p>
-        <div class="tags"><span class="tag">LoRA / QLoRA</span><span class="tag">RAG</span><span class="tag">Synthetic Data</span><span class="tag">DGX Spark</span></div>
-      </article>
-
-      <article class="card reveal">
-        <span class="mono">Sequence Models · Audio</span>
+        <span class="mono">Sequence Models - Audio</span>
         <h3>Automatic Piano Transcription</h3>
-        <p>A comparative study transcribing piano audio to MIDI on the MAESTRO dataset — benchmarking LSTM+CNN vs. vanilla Transformer vs. efficient sparse-attention Transformer across accuracy, speed, and memory, including work on MIDI tokenization schemes.</p>
+        <p>A comparative study transcribing piano audio to MIDI on the MAESTRO dataset - benchmarking LSTM+CNN vs. vanilla Transformer vs. efficient sparse-attention Transformer across accuracy, speed, and memory, including work on MIDI tokenization schemes.</p>
         <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">Sparse Attention</span></div>
       </article>
 
@@ -424,7 +425,7 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="sec-head reveal">
-      <span class="mono">03 — Skills</span>
+      <span class="mono">03 - Skills</span>
       <h2>Tools &amp; stack</h2>
     </div>
     <div class="reveal">
@@ -464,7 +465,7 @@
   <!-- FOUNDATIONS -->
   <section id="foundations">
     <div class="sec-head reveal">
-      <span class="mono">04 — Foundations</span>
+      <span class="mono">04 - Foundations</span>
       <h2>Earlier project work</h2>
     </div>
     <div class="mini-grid reveal">
@@ -492,37 +493,37 @@
     <div class="two-col">
       <div class="reveal">
         <div class="sec-head" style="margin-bottom:24px;">
-          <span class="mono">05 — Education</span>
+          <span class="mono">05 - Education</span>
           <h2>Background</h2>
         </div>
         <div class="stack-item">
           <div class="t">MSc, Artificial Intelligence</div>
           <div class="s">Aristotle University of Thessaloniki (AUTH)</div>
-          <div class="d">2025 — Present · In progress</div>
+          <div class="d">2025 - Present - In progress</div>
         </div>
         <div class="stack-item">
           <div class="t">BSc, Applied Informatics</div>
           <div class="s">University of Macedonia</div>
-          <div class="d">2020 — 2024 · ML · Neural Networks · Data Science</div>
+          <div class="d">2020 - 2024 - ML - Neural Networks - Data Science</div>
         </div>
 
         <div class="sec-head" style="margin:34px 0 20px;">
           <span class="mono">Certifications &amp; Awards</span>
         </div>
-        <div class="stack-item"><div class="t">LangChain — LangGraph · LangChain (Python) · LangSmith Agent Builder</div><div class="s">LangChain · 2025–2026</div></div>
-        <div class="stack-item"><div class="t">Neo4j Certified Professional</div><div class="s">Neo4j · 2025 · graph databases + LLM fundamentals</div></div>
-        <div class="stack-item"><div class="t">Deep Learning Specialization</div><div class="s">DeepLearning.AI · 2024–2025</div></div>
-        <div class="stack-item"><div class="t">Data Science Professional Certificate</div><div class="s">IBM · 2024</div></div>
+        <div class="stack-item"><div class="t">LangChain - LangGraph - LangChain (Python) - LangSmith Agent Builder</div><div class="s">LangChain - 2025–2026</div></div>
+        <div class="stack-item"><div class="t">Neo4j Certified Professional</div><div class="s">Neo4j - 2025 - graph databases + LLM fundamentals</div></div>
+        <div class="stack-item"><div class="t">Deep Learning Specialization</div><div class="s">DeepLearning.AI - 2024–2025</div></div>
+        <div class="stack-item"><div class="t">Data Science Professional Certificate</div><div class="s">IBM - 2024</div></div>
         <div class="stack-item"><div class="t">Best Work in Software Technology</div><div class="s">University award for outstanding project performance</div></div>
       </div>
 
       <div class="reveal">
         <div class="sec-head" style="margin-bottom:24px;">
-          <span class="mono">06 — Languages</span>
+          <span class="mono">06 - Languages</span>
           <h2>Languages</h2>
         </div>
         <div class="lang-bar"><span>Greek</span><span class="lv">Native</span></div>
-        <div class="lang-bar"><span>English</span><span class="lv">C2 · Professional</span></div>
+        <div class="lang-bar"><span>English</span><span class="lv">C2 - Professional</span></div>
 
         <div class="sec-head" style="margin:34px 0 16px;">
           <span class="mono">Focus Areas</span>
