@@ -35,70 +35,87 @@
       Back to main
     </a>
     <h1 style="font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;font-weight:700;">Reports &amp; write-ups</h1>
-    <p class="lede">Longer-form documentation for selected projects — architecture, methods, and results. Each report is a PDF you can open or download.</p>
+    <p class="lede">Longer-form documentation for selected projects — architecture, methods, and results. Open or download the full PDF for each.</p>
   </div>
 </header>
 
 <main class="wrap">
   <section style="border-bottom:none;">
     <!--
-      HOW TO ADD A REPORT:
-      1. Create a folder named "reports" in your repo and upload your PDF into it.
-      2. Set the button's href to the file, e.g. href="reports/multi-agent.pdf".
-      3. If a project has NO report yet, just delete its <div class="card-foot">...</div> block.
-      The "download" attribute lets visitors save the file; remove it to open in-browser instead.
+      The PDFs live in a "reports" folder in the repo (reports/multi-agent.pdf, etc.).
+      Upload the reports/ folder alongside this file. To add another: drop the PDF in
+      reports/ and copy a card below, pointing its button href at the new file.
+      "In Greek" notes just flag the report language for non-Greek readers.
     -->
     <div class="proj-grid">
 
       <article class="card reveal">
         <span class="mono">Multi-Agent · RAG</span>
         <h3>Multi-Agent Information Search &amp; Synthesis</h3>
-        <p>A LangGraph pipeline of parallel web-search and RAG agents feeding a synthesis workflow, with a voting sub-graph of strict / lenient / devil's-advocate reviewers to resolve disagreement, plus a synthesizer and fact-checker behind a Streamlit UI. The report covers the agent roles, state management, and how the design maps to classical multi-agent theory (BDI, FIPA, Contract Net).</p>
+        <p>A LangGraph pipeline of parallel web-search and RAG agents feeding a synthesis workflow, with a voting sub-graph of strict / lenient / devil's-advocate reviewers to resolve disagreement, plus a synthesizer and fact-checker behind a Streamlit UI. The report also maps the design to classical multi-agent theory (BDI, FIPA, Contract Net).</p>
         <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Qdrant</span><span class="tag">Streamlit</span></div>
         <div class="card-foot" style="margin-top:16px;">
-          <a class="btn" href="reports/multi-agent.pdf" target="_blank" rel="noopener" download>
+          <a class="btn" href="reports/multi-agent.pdf" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
             Read report (PDF)
           </a>
+          <span class="mono" style="align-self:center;color:var(--ink-faint);">In Greek</span>
         </div>
       </article>
 
       <article class="card reveal">
         <span class="mono">Generative · Deep RL</span>
         <h3>Transformer GAN + CLIP-Guided RL Fine-Tuning</h3>
-        <p>A conditional GAN with a transformer text encoder for caption-to-image generation on Oxford Flowers, extended with policy-gradient RL fine-tuning using CLIP as the reward signal. The report details the architecture, the alignment gains, and the alignment–diversity tradeoff (drawn as a parallel to RLHF/InstructGPT).</p>
+        <p>A conditional GAN with a from-scratch transformer text encoder for caption-to-image generation on Oxford Flowers, extended with a deterministic policy-gradient stage that uses CLIP as the reward signal. CLIP alignment improved from 0.252 to 0.520 (+106%) while keeping image realism — with analysis of the alignment–diversity tradeoff as an RLHF parallel.</p>
         <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">GAN</span><span class="tag">CLIP</span><span class="tag">RL</span></div>
         <div class="card-foot" style="margin-top:16px;">
-          <a class="btn" href="reports/transformer-gan.pdf" target="_blank" rel="noopener" download>
+          <a class="btn" href="reports/transformer-gan.pdf" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
             Read report (PDF)
           </a>
+          <span class="mono" style="align-self:center;color:var(--ink-faint);">In Greek</span>
         </div>
       </article>
 
       <article class="card reveal">
-        <span class="mono">Sequence Models · Audio</span>
+        <span class="mono">Knowledge Graphs · Semantic Web</span>
+        <h3>RML → RDF → GraphDB Pipeline (Java)</h3>
+        <p>An end-to-end Java pipeline that programmatically cleans a tabular dataset (Spotify &amp; YouTube), maps it to RDF/Turtle with RML rules, loads it into a GraphDB repository with OWL reasoning enabled, and runs SPARQL queries that surface inferences the raw table couldn't express.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">RML</span><span class="tag">RDF</span><span class="tag">SPARQL</span><span class="tag">GraphDB</span><span class="tag">OWL</span></div>
+        <div class="card-foot" style="margin-top:16px;">
+          <a class="btn" href="reports/rdf-pipeline.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
+            Read report (PDF)
+          </a>
+          <span class="mono" style="align-self:center;color:var(--ink-faint);">In Greek</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <span class="mono">Tabular ML · Competition</span>
+        <h3>Poverty Prediction Challenge</h3>
+        <p>An end-to-end machine-learning entry on a household-welfare dataset — variable categorization, exploratory analysis, missing-value handling, and a comparison of regression models against a deep neural network — submitted to a competition with a ranked leaderboard placement.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">Deep NN</span></div>
+        <div class="card-foot" style="margin-top:16px;">
+          <a class="btn" href="reports/poverty-prediction.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
+            Read report (PDF)
+          </a>
+          <span class="mono" style="align-self:center;color:var(--ink-faint);">In English</span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <span class="mono">Sequence Models · Audio · Team project</span>
         <h3>Automatic Piano Transcription</h3>
-        <p>A comparative study transcribing piano audio to MIDI on the MAESTRO dataset — LSTM+CNN vs. vanilla Transformer vs. efficient sparse-attention Transformer, across accuracy, speed, and memory, including work on MIDI tokenization schemes.</p>
+        <p>A comparative study transcribing piano audio to MIDI on the MAESTRO dataset — CNN+LSTM vs. Transformer encoder vs. CNN+Transformer vs. a sparse-attention encoder–decoder — across accuracy, speed, and memory, including MIDI tokenization work. A three-person team project; I owned the Transformer side.</p>
         <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">Sparse Attention</span></div>
         <div class="card-foot" style="margin-top:16px;">
-          <a class="btn" href="reports/piano-transcription.pdf" target="_blank" rel="noopener" download>
+          <a class="btn" href="reports/piano-transcription.pdf" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
             Read report (PDF)
           </a>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <span class="mono">LLM · Domain Adaptation</span>
-        <h3>Domain-Specific Greek Legal LLM</h3>
-        <p>Adapting Llama-Krikri-8B to a specialized legal domain from a corpus of law books — comparing continued pretraining vs. LoRA/QLoRA vs. RAG, generating synthetic SFT data, and targeting single-node training on NVIDIA DGX Spark.</p>
-        <div class="tags"><span class="tag">LoRA / QLoRA</span><span class="tag">RAG</span><span class="tag">Synthetic Data</span><span class="tag">DGX Spark</span></div>
-        <div class="card-foot" style="margin-top:16px;">
-          <a class="btn" href="reports/legal-llm.pdf" target="_blank" rel="noopener" download>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>
-            Read report (PDF)
-          </a>
+          <span class="mono" style="align-self:center;color:var(--ink-faint);">In Greek</span>
         </div>
       </article>
 
@@ -118,6 +135,10 @@
       <a class="chip" href="https://github.com/withan46" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
         GitHub
+      </a>
+      <a class="chip" href="https://www.kaggle.com/withan46" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336"/></svg>
+        Kaggle
       </a>
     </div>
   </div>

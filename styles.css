@@ -310,18 +310,28 @@
   .interest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   @media (max-width: 620px) { .interest-grid { grid-template-columns: 1fr; } }
   .interest {
+    display: flex; align-items: center; gap: 15px;
     background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 24px; box-shadow: var(--shadow); transition: transform 0.22s ease, border-color 0.22s ease;
+    padding: 18px 20px; box-shadow: var(--shadow); transition: transform 0.22s ease, border-color 0.22s ease;
   }
   .interest:hover { transform: translateY(-3px); border-color: var(--accent); }
   .icon-badge {
     width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center;
-    background: var(--accent-wash); color: var(--accent); margin-bottom: 14px;
+    background: var(--accent-wash); color: var(--accent); flex: none;
   }
   .icon-badge svg { width: 23px; height: 23px; }
-  .interest h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.08rem; font-weight: 600; margin: 0 0 6px; }
-  .interest p { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
+  .interest h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.06rem; font-weight: 600; margin: 0; }
+  .interest .yrs { color: var(--ink-faint); font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; }
 
   .prose { color: var(--ink-soft); max-width: 680px; }
   .prose p { margin: 0 0 16px; }
   .prose p:last-child { margin-bottom: 0; }
+
+  /* Soft-skill tags on interest cards */
+  .soft-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .soft-tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.68rem;
+    letter-spacing: 0.03em; padding: 4px 9px; border-radius: 6px;
+    background: var(--accent-wash); color: var(--accent-strong);
+  }
+  html[data-theme="dark"] .soft-tag { color: var(--accent); }
